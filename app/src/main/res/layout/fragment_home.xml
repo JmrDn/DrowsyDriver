@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:backgroundTint="@color/bg"
+    tools:context=".fragments.HomeFragment">
+
+    <ImageView
+        android:id="@+id/safeCircle_ImageView"
+        android:layout_width="400dp"
+        android:layout_height="400dp"
+        android:src="@drawable/blue_eclipse"
+        android:layout_marginStart="-120dp"
+
+        android:layout_centerVertical="true"/>
+
+    <com.airbnb.lottie.LottieAnimationView
+
+        android:id="@+id/drowsyCircle_LottieView"
+        android:layout_width="600dp"
+        android:layout_height="600dp"
+        android:layout_marginStart="-280dp"
+        android:layout_centerVertical="true"
+        app:lottie_rawRes="@raw/red_circle_animation"
+        app:lottie_loop="true"
+        app:lottie_autoPlay="true"
+        app:lottie_speed="4"/>
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Driver is Safe"
+        android:fontFamily="@font/calibribold"
+        android:textSize="55sp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="20dp"
+        android:textColor="@color/black"
+        tools:ignore="HardcodedText" />
+
+
+
+</RelativeLayout>

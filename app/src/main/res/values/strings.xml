@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Drowsy Driver</string>
+    <string name="about_details">
+        \t Drivers are most likely to experience drowsiness due to the hours of driving,
+        stress, and even workplace issues. The Driver Drowsiness Detection System (DDDS)
+        is a tool dedicated especially for drivers who experience drowsiness during working
+        hours in the working environment. This device will aid the road traffic accidents caused
+        by drowsiness of the driver during working hours and within the working environment.
+        With the help of this IoT integrated system, this will allow drivers to avoid road traffic
+        accidents because of that it reduces the amount of road traffic accidents that happen every year.
+    </string>
+    <string name="about_details1">
+        \t In this project aims to detect the drowsiness of the driver, specifically eye actions.
+        By using a detection system, the project will determine if the driver is in a state of
+        drowsiness or micro-sleep. With audio cues and warning messages, the system can make the
+        driver alert. It will awaken the spirit of the driver plus it can help the driver decide by
+        taking a break
+.
+    </string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="nav_drawer_open">Navigation Drawer Open</string>
+    <string name="nav_drawer_close">Navigation Drawer Close</string>
+    <string name="driverIsDrowsy">Driver is Drowsy</string>
+    <string name="driverIsSafe">Driver is Safe</string>
+</resources>

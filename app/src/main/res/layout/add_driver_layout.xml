@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+   >
+ <LinearLayout
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:orientation="vertical"
+     android:padding="20dp">
+
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Add driver"
+         android:textSize="30sp"
+         android:textColor="@color/black"
+         android:fontFamily="@font/calibribold"
+         tools:ignore="HardcodedText" />
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Add a new driver to monitor"
+         android:fontFamily="@font/calibri_regular"
+         android:textSize="14sp"
+         android:textColor="@color/black"
+         android:layout_marginBottom="20dp"
+         tools:ignore="HardcodedText" />
+
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Full name"
+         android:fontFamily="@font/calibribold"
+         android:textSize="20sp"
+         android:textColor="@color/black"
+         tools:ignore="HardcodedText" />
+
+
+     <androidx.appcompat.widget.AppCompatEditText
+         android:id="@+id/fullname_Edittext"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="10dp"
+         android:background="@drawable/custom_edittext"
+         android:fontFamily="@font/calibri_regular"
+         android:hint="Enter driver's Full name"
+         android:inputType="text"
+         android:paddingStart="20dp"
+         android:paddingTop="20dp"
+         android:paddingEnd="20dp"
+         android:paddingBottom="20dp"
+         android:textColor="@color/black"
+         android:textSize="20sp"
+         tools:ignore="HardcodedText" />
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Plate number"
+         android:fontFamily="@font/calibribold"
+         android:textSize="20sp"
+         android:layout_marginTop="20dp"
+         android:textColor="@color/black"
+         tools:ignore="HardcodedText" />
+
+
+     <androidx.appcompat.widget.AppCompatEditText
+         android:id="@+id/plateNumber_Edittext"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="10dp"
+         android:background="@drawable/custom_edittext"
+         android:fontFamily="@font/calibri_regular"
+         android:hint="Enter plate number"
+         android:inputType="text"
+         android:paddingStart="20dp"
+         android:paddingTop="20dp"
+         android:paddingEnd="20dp"
+         android:paddingBottom="20dp"
+         android:textColor="@color/black"
+         android:textSize="20sp"
+         tools:ignore="HardcodedText" />
+
+     <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:text="Emergency Contact"
+         android:fontFamily="@font/calibribold"
+         android:layout_marginTop="20dp"
+         android:textSize="20sp"
+         android:textColor="@color/black"
+         tools:ignore="HardcodedText" />
+     <androidx.appcompat.widget.AppCompatEditText
+         android:id="@+id/emergencyContact_Edittext"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:hint="Enter emergency contact"
+         android:fontFamily="@font/calibri_regular"
+         android:textSize="20sp"
+         android:textColor="@color/black"
+         android:inputType="phone"
+         android:layout_marginTop="10dp"
+         android:paddingStart="20dp"
+         android:paddingEnd="20dp"
+         android:paddingTop="20dp"
+         android:paddingBottom="20dp"
+         android:background="@drawable/custom_edittext"
+         tools:ignore="HardcodedText" />
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="30dp"
+         android:orientation="horizontal">
+
+         <androidx.appcompat.widget.AppCompatButton
+             android:id="@+id/cancel_button"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:padding="18dp"
+             android:layout_weight="1"
+             android:text="Cancel"
+             android:layout_marginEnd="10dp"
+             android:textColor="#FF0000"
+             android:background="@color/white"
+             android:textAllCaps="false"
+             android:textSize="18sp"
+             android:fontFamily="@font/calibribold"
+             tools:ignore="HardcodedText" />
+
+         <androidx.appcompat.widget.AppCompatButton
+             android:id="@+id/confirm_button"
+             android:layout_width="0dp"
+             android:layout_height="wrap_content"
+             android:padding="18dp"
+             android:layout_weight="1"
+             android:text="Add"
+             android:textAllCaps="false"
+             android:textSize="18sp"
+             android:fontFamily="@font/calibribold"
+             android:textColor="@color/white"
+             android:layout_marginStart="10dp"
+             android:background="@drawable/custom_btn_primary"
+             tools:ignore="HardcodedText" />
+     </LinearLayout>
+ </LinearLayout>
+
+</androidx.cardview.widget.CardView>

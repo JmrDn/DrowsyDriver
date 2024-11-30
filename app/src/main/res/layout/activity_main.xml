@@ -44,7 +44,7 @@
                     android:id="@+id/imageview"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/drowsy_driver_logo_for_toolbar_ic"
+                    android:src="@drawable/app_logo"
                     android:layout_alignParentEnd="true"
                     android:layout_marginEnd="30dp"
                     android:layout_centerVertical="true"

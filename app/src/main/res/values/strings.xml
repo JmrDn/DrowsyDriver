@@ -23,4 +23,13 @@
     <string name="nav_drawer_close">Navigation Drawer Close</string>
     <string name="driverIsDrowsy">Driver is Drowsy</string>
     <string name="driverIsSafe">Driver is Safe</string>
+
+    <string name="menu_bar_desc"> <b>1. Menu</b> - It has 3 components to show</string>
+    <string name="home_desc"><b>1.1 Home </b> - This will bring you back to the main screen of the app</string>
+    <string name="about_desc"><b>1.2 About</b> - It provides information about the app, including its purpose, features, and developers.</string>
+    <string name="app_guide_desc"><b>1.3 App Guide</b> - It offers a step-by-step guide on how to navigate the interface and its features.</string>
+
+    <string name="light_indicator_des"><b>2. Light Indicator</b> - It is the visual representation indicating the current status of the app.</string>
+    <string name="red_light_desc"><b>2.1</b> - The red light signifies an alert or warning</string>
+    <string name="blue_light_desc"><b>2.2</b> - The blue light signifies no signs of possible accident risks</string>
 </resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="5dp"
+    android:layout_marginTop="5dp"
+    android:padding="10dp"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/fullName_Textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Loading..."
+        android:fontFamily="@font/calibribold"
+        android:textSize="22sp"
+        android:textColor="@color/black"
+        tools:ignore="HardcodedText" />
+    <TextView
+        android:id="@+id/plateNumber_Textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Loading..."
+        android:fontFamily="@font/calibri_regular"
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/emergencyContact_Textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Loading..."
+        android:fontFamily="@font/calibri_regular"
+        android:textSize="16sp"
+        tools:ignore="HardcodedText" />
+
+</LinearLayout>

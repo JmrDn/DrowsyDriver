@@ -19,6 +19,7 @@ import android.view.View;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -33,9 +34,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import com.example.drowsydriver.fragments.AboutFragment;
+import com.example.drowsydriver.fragments.AddDriverFragment;
+import com.example.drowsydriver.fragments.AlertHistoryFragment;
 import com.example.drowsydriver.fragments.GuideAppFragment;
 import com.example.drowsydriver.fragments.HomeFragment;
+import com.example.drowsydriver.model.DriverListModel;
+import com.example.drowsydriver.utils.DateAndTimeUtils;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.Timestamp;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -44,7 +52,10 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.Objects;
 
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
@@ -52,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ActionBarDrawerToggle toggle;
     private final  String value = "Home";
     Ringtone ringtone;
-
+    DriverListModel currentDriver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,12 +72,41 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         initWidgets();
+        setUpCurrentDriver();
         setUpDrawer();
         setUpDefaultNavigation();
         setUpAlarm();
         createNotification();
 
-    }  private void createNotification() {
+
+    }
+
+    private void setUpCurrentDriver() {
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference("currentlyMonitoring");
+        db.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if(snapshot.exists()){
+                    String fullname = snapshot.child("fullName").getValue().toString();
+                    String id = snapshot.child("id").getValue().toString();
+                    String  plateNum = snapshot.child("plateNum").getValue().toString();
+                    currentDriver = new DriverListModel(fullname,plateNum, "sa", id);
+
+
+                } else {
+                    Log.d("TAG", "Failed to fetch currently monitoring");
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.d("TAG", "Failed to fetch currently monitoring");
+            }
+        });
+
+    }
+
+    private void createNotification() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel notificationChannel = new NotificationChannel("Drowsy",
                     "Drowsy", NotificationManager.IMPORTANCE_HIGH);
@@ -124,6 +164,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                     if(isDrowsy){
                         playRingtone();
+                        setDriverAlertLog();
                     } else {
 
                         stopRingtone();
@@ -135,6 +176,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.d("TAG", "Failed to fetchh db" + error.getMessage());
+            }
+        });
+    }
+
+
+    private void setDriverAlertLog() {
+        DatabaseReference db = FirebaseDatabase.getInstance().getReference("alertHistory");
+
+        String key = db.push().getKey();
+
+        HashMap<String, Object> driverLog = new HashMap<>();
+        driverLog.put("id", currentDriver.getId());
+        driverLog.put("plateNum", currentDriver.getPlateNum());
+        driverLog.put("fullName", currentDriver.getFullName());
+        driverLog.put("date", DateAndTimeUtils.getDateWithWordFormat());
+        driverLog.put("time", DateAndTimeUtils.getTimeWithAMAndPM());
+        driverLog.put("timeStamp", Timestamp.now());
+        driverLog.put("key", key);
+
+
+        db.child(key).setValue(driverLog).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if(task.isSuccessful()){
+                    Log.d("TAG", "Drowsiness of driver successfully saved");
+                } else {
+                    Log.d("TAG", "Drowsiness of driver failed to save");
+                }
             }
         });
     }
@@ -228,6 +297,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             selectedFragment = new GuideAppFragment();
         }
+        else if (itemId == R.id.addDriver){
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    drawerLayout.closeDrawer(GravityCompat.START);
+
+                }
+            }, 300);
+
+            selectedFragment = new AddDriverFragment();
+        }
+        else if (itemId == R.id.alertHistory){
+
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    drawerLayout.closeDrawer(GravityCompat.START);
+
+                }
+            }, 300);
+
+            selectedFragment = new AlertHistoryFragment();
+        }
+
 
 
 

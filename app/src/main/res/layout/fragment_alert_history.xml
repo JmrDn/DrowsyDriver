@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.AlertHistoryFragment"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/title_TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Alert History"
+        android:textSize="50sp"
+        android:fontFamily="@font/calibribold"
+        android:textColor="@color/primary"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="20dp"
+        tools:ignore="HardcodedText" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/recyclerview"
+        android:layout_marginTop="20dp"/>
+
+
+
+</LinearLayout>

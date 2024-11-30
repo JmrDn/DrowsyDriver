@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:backgroundTint="@color/bg"
+    android:orientation="vertical"
     tools:context=".fragments.GuideAppFragment">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
 
     <TextView
         android:id="@+id/title_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Guide App"
+        android:text="App Guide"
         android:textSize="50sp"
         android:fontFamily="@font/calibribold"
         android:textColor="@color/primary"
@@ -18,27 +25,95 @@
         android:layout_marginStart="20dp"
         tools:ignore="HardcodedText" />
 
-    <TextView
-        android:id="@+id/details_TextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/about_details"
-        android:fontFamily="@font/calibri_regular"
-        android:textColor="@color/black"
-        android:layout_margin="20dp"
-        android:layout_below="@id/title_TextView"
-        android:textSize="18sp"/>
+    <ImageView
+        android:layout_width="350dp"
+        android:layout_height="500dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/app_guide_img" />
+
+
 
     <TextView
-
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/about_details1"
-        android:fontFamily="@font/calibri_regular"
+        android:text="@string/menu_bar_desc"
         android:textColor="@color/black"
-        android:layout_margin="20dp"
-        android:layout_below="@id/details_TextView"
-        android:textSize="18sp"/>
+        android:fontFamily="@font/calibri_regular"
+        android:textSize="20sp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
 
 
-</RelativeLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/home_desc"
+        android:textColor="@color/black"
+        android:fontFamily="@font/calibri_regular"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/about_desc"
+        android:textColor="@color/black"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/calibri_regular"
+        android:textSize="20sp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_guide_desc"
+        android:textColor="@color/black"
+        android:fontFamily="@font/calibri_regular"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/light_indicator_des"
+        android:textColor="@color/black"
+        android:fontFamily="@font/calibri_regular"
+        android:textSize="20sp"
+        android:layout_marginTop="15dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/red_light_desc"
+        android:fontFamily="@font/calibri_regular"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/black"
+        android:layout_marginEnd="20dp"
+        android:layout_marginStart="40dp"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/blue_light_desc"
+        android:textColor="@color/black"
+        android:fontFamily="@font/calibri_regular"
+        android:textSize="20sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"/>
+
+</LinearLayout>
+
+</ScrollView>
